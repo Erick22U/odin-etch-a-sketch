@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grid */
+#grid{
+    display: grid;
+    border-radius: 2px;
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+}
+
+/* Grid elements */
+.grid-element{
+    border: 1px solid red;
+}
