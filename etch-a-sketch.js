@@ -5,6 +5,12 @@ const gridVal = document.getElementById('sizeText')
 const DEFAULT_SIZE = 16
 gridVal.innerHTML = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`
 
+
+function changeColor(e){
+    console.log(e.target)
+    e.target.style.backgroundColor = 'black'
+}
+
 function makeGrid(size){
 
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
@@ -13,6 +19,8 @@ function makeGrid(size){
     for(let i = 0; i < size * size; i++){
         const gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
+
+        gridElement.addEventListener('mouseover', changeColor)
         grid.appendChild(gridElement);
     }
 }
@@ -28,3 +36,4 @@ slider.oninput = function() {
 }
 
 makeGrid(DEFAULT_SIZE);
+
