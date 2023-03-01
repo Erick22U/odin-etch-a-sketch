@@ -1,5 +1,9 @@
 const grid = document.getElementById('grid');
+const slider = document.getElementById('myRange')
+const gridVal = document.getElementById('sizeText')
+
 const DEFAULT_SIZE = 16
+gridVal.innerHTML = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`
 
 function makeGrid(){
 
@@ -11,6 +15,10 @@ function makeGrid(){
         gridElement.classList.add('grid-element');
         grid.appendChild(gridElement);
     }
+}
+
+slider.oninput = function() {
+    gridVal.innerHTML = `${this.value} x ${this.value}`
 }
 
 makeGrid();
