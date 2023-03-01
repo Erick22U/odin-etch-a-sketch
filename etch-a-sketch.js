@@ -1,13 +1,12 @@
 const grid = document.getElementById('grid');
 const slider = document.getElementById('myRange')
 const gridVal = document.getElementById('sizeText')
+const restart = document.getElementById('restart')
 
 const DEFAULT_SIZE = 16
-gridVal.innerHTML = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`
-
+gridVal.innerHTML = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`;
 
 function changeColor(e){
-    console.log(e.target)
     e.target.style.backgroundColor = 'black'
 }
 
@@ -35,5 +34,11 @@ slider.oninput = function() {
     makeGrid(this.value);
 }
 
-makeGrid(DEFAULT_SIZE);
+function eraseGrid(){
+ const gridElement = document.getElementsByClassName('grid-element')
+ for(let i = 0; i < gridElement.length; i++)
+    gridElement[i].style.backgroundColor = 'white'
+}
 
+window.onload = makeGrid(DEFAULT_SIZE);
+restart.addEventListener('click', eraseGrid);
