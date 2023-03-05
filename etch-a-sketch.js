@@ -3,11 +3,24 @@ const slider = document.getElementById('myRange')
 const gridVal = document.getElementById('sizeText')
 const restart = document.getElementById('restart')
 
+const radioButtons = document.querySelectorAll('input[name="color"]')
+
 const DEFAULT_SIZE = 16
 gridVal.innerHTML = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`;
 
 function changeColor(e){
-    e.target.style.backgroundColor = 'black'
+
+    for(let i = 0; i < radioButtons.length; i++){
+        if(radioButtons[i].checked && radioButtons[i].id == 'black'){
+            e.target.style.backgroundColor = 'black'
+        }
+        if(radioButtons[i].checked && radioButtons[i].id == 'erase'){
+            e.target.style.backgroundColor = 'white';
+        }
+        if(radioButtons[i].checked && radioButtons[i].id == 'random'){
+            e.target.style.backgroundColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+        }
+    }
 }
 
 function makeGrid(size){
