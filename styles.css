@@ -57,7 +57,7 @@ body{
 
 .color-choices label{
   padding: 5px;
-  border: 1px solid #CCC;
+  border: 2px solid #CCC;
   cursor: pointer;
   z-index: 90;
 }
